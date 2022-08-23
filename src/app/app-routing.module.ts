@@ -7,6 +7,7 @@ import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'super-lazy', loadComponent: () => import('./super-lazy/super-lazy.component').then(c => c.SuperLazyComponent)},
   { path: 'test', component: TestComponent, canActivate:[SecurityGuard] },
   { path: 'lazy', loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule) },
   { path: '**', component: PageNotFoundComponent }

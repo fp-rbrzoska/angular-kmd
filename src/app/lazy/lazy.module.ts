@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LazyRoutingModule } from './lazy-routing.module';
 import { MyLazyComponent } from './my-lazy/my-lazy.component';
+import { SharedModule } from '../shared/shared.module';
 
 export const myFunc = () => {}
 
@@ -12,7 +13,7 @@ export const myFunc = () => {}
   ],
   imports: [
     CommonModule,
-    LazyRoutingModule
+    LazyRoutingModule, SharedModule
   ]
 })
 export class LazyModule { }

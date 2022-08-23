@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestService } from 'src/app/core/test.service';
 
 @Component({
   selector: 'kmd-my-lazy',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyLazyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _testService: TestService) { }
 
   ngOnInit(): void {
   }
