@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Subject } from 'rxjs';
 import { filter, from, map, Observable, of, tap } from 'rxjs';
 
@@ -20,21 +21,26 @@ export class TestService {
   // })
   obs$ = from([1,2,3,4]);
   private _myTestSubj = new Subject();
+  private _bSubj = new BehaviorSubject(0);
   myTest$ = this._myTestSubj.asObservable()
 
   constructor() {
-    console.log('init test service');
+    // console.log('init test service');
+    // console.log(this._bSubj.value)
 
-    this._myTestSubj.next('a')
-    this._myTestSubj.next('b')
-    this._myTestSubj.subscribe(v => console.log(v))
-    this._myTestSubj.next('c')
-
-    this.obs$.pipe(
-      filter(v => v > 1),
-      tap(v => console.log(' after filter: ', v)),
-      map(v => v * 2),
-    ).subscribe(v => console.log(v))
+    // this._myTestSubj.next('a')
+    // this._myTestSubj.next('b')
+    // this._myTestSubj.subscribe(v => console.log(v))
+    // this._myTestSubj.next('c')
+    // this._bSubj.next(11)
+    // this._bSubj.next(111)
+    // this._bSubj.subscribe(v => console.log(v))
+    // this._bSubj.next(1111)
+    // this.obs$.pipe(
+    //   filter(v => v > 1),
+    //   tap(v => console.log(' after filter: ', v)),
+    //   map(v => v * 2),
+    // ).subscribe(v => console.log(v))
    }
 
    fetchTestJson(): Promise<any> {
