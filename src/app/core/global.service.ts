@@ -37,10 +37,10 @@ export class GlobalService {
     distinctUntilChanged()
   );
 
-  _userSubj = new BehaviorSubject([]);
-  _userLanguage = new BehaviorSubject('en');
-  _loaderSubj = new BehaviorSubject(false);
-  _sidePanelOpenSubj = new BehaviorSubject(false);
+  // _userSubj = new BehaviorSubject([]);
+  // _userLanguage = new BehaviorSubject('en');
+  // _loaderSubj = new BehaviorSubject(false);
+  // _sidePanelOpenSubj = new BehaviorSubject(false);
 
   constructor() { }
 

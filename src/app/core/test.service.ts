@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, switchMap } from 'rxjs';
 import { Subject } from 'rxjs';
 import { filter, from, map, Observable, of, tap } from 'rxjs';
 
@@ -25,6 +25,8 @@ export class TestService {
   myTest$ = this._myTestSubj.asObservable()
 
   constructor() {
+
+    //this._myTestSubj.pipe(switchMap(v1 => fetchSecondData())).subscribe(v2 => .....)
     // console.log('init test service');
     // console.log(this._bSubj.value)
 

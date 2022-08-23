@@ -1,3 +1,9 @@
 <kmd-navigation></kmd-navigation>
 <router-outlet></router-outlet>
 <div *ngIf="loader$ | async">Loading...</div>
+<ng-template [ngIf]="loader$ | async">
+  <div>Loading...</div>
+</ng-template>
+
+<div *kmdMyTest="4">test</div>
+
