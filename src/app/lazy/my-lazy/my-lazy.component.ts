@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TestService } from 'src/app/core/test.service';
 
 @Component({
@@ -6,11 +7,19 @@ import { TestService } from 'src/app/core/test.service';
   templateUrl: './my-lazy.component.html',
   styleUrls: ['./my-lazy.component.scss']
 })
-export class MyLazyComponent implements OnInit {
+export class MyLazyComponent implements OnInit, OnDestroy {
 
-  constructor(private _testService: TestService) { }
+  private _subscription: Subscription;
+  constructor(private _testService: TestService) {
+    _testService.fetchTestJson().then(r => console.log(r))
+    this._subscription = _testService.myTest$.subscribe(v => console.log(v))
+   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+      this._subscription.unsubscribe()
   }
 
 }
